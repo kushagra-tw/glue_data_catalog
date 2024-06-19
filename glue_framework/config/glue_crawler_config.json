@@ -1,0 +1,54 @@
+{
+  "s3_crawler": {
+    "Name": "s3_crawler_name",
+    "Role": "arn:aws:iam::160071257600:role/service-role/AWSGlueServiceRole-JCPCrawler",
+    "DatabaseName": "your_database_name",
+    "Description": "Crawler for S3 data",
+    "Targets": {
+      "S3Targets": [
+        {
+          "Path": "s3://your-bucket/path",
+          "Exclusions": ["**/*.tmp", "**/__temporary/*"]
+        }
+      ]
+    },
+    "SchemaChangePolicy": {
+      "UpdateBehavior": "UPDATE_IN_DATABASE",
+      "DeleteBehavior": "DEPRECATE_IN_DATABASE"
+    },
+    "Configuration": {
+      "Version": 1.0,
+      "CrawlerOutput": {
+        "Partitions": {
+          "AddOrUpdateBehavior": "InheritFromTable"
+        }
+      }
+    },
+    "RecrawlPolicy": {
+      "RecrawlBehavior": "CRAWL_EVERYTHING"
+    },
+    "Tags": {
+      "Purpose": "DataCatalog"
+    }
+  },
+  "catalog_crawler": {
+    "Name": "",
+    "Role": "arn:aws:iam::160071257600:role/service-role/AWSGlueServiceRole-JCPCrawler",
+    "DatabaseName": "",
+    "Targets": {
+      "CatalogTargets": [
+        {
+          "DatabaseName": "",
+          "Tables": []
+        }
+      ]
+    },
+    "SchemaChangePolicy": {
+      "UpdateBehavior": "LOG",
+      "DeleteBehavior": "LOG"
+    },
+    "RecrawlPolicy": {
+      "RecrawlBehavior": "CRAWL_EVERYTHING"
+    }
+  }
+}

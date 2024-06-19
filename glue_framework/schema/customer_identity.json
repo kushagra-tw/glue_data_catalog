@@ -1,0 +1,30 @@
+{
+
+  "fields" : [
+    {
+      "metadata": {},
+      "name": "Email Address",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "metadata" : {},
+      "name" : "Current Segment",
+      "nullable" : false,
+      "type" : "string"
+    },
+    {
+      "metadata" : {},
+      "name" : "Current Ladder",
+      "nullable" : false,
+      "type" : "string"
+    },
+    {
+      "metadata" : {},
+      "name" : "Segment ID",
+      "nullable" : false,
+      "type" : "string"
+    }
+  ]
+
+}
